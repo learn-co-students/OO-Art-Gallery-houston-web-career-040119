@@ -24,8 +24,11 @@ class Gallery
     artists.map {|artist| artist.name}
   end
 
+  def highest_price
+    self.paintings.map {|painting| painting.price}.max
+  end
+
   def most_expensive_painting
-    highest_price = self.paintings.map {|painting| painting.price}.max
-    self.paintings.find {|painting| painting.price == highest_price}
+    self.paintings.find {|painting| painting.price == self.highest_price}
   end
 end
